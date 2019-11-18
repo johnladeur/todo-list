@@ -2,8 +2,12 @@ h1 {
     text-align: center;
 }
 
-.js-form {
+.container {
 
     margin-left: 42%;
 
+}
+
+ul {
+    margin-left: 42%;
 }
