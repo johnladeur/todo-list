@@ -36,7 +36,6 @@ function addItem(e){
   itemList.appendChild(li);
 }
 
-
   //Delete Item
   deleteBtn.id = 'delete'
   document.getElementById('delete').addEventListener('click', removeItem);
@@ -57,7 +56,7 @@ function addItem(e){
   //Mark Item as Done
   var done = false;
   
-  if (done == true){
+  /*if (done == true){
       document.queryselector(li).style.textDecoration = "line-through"
   }
 
@@ -66,7 +65,7 @@ function addItem(e){
   doneBtn.addEventListener('click', function(){
        done = !done;
   });
-
+*/
 
 
 
