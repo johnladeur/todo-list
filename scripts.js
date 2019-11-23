@@ -1,9 +1,14 @@
 (function() {
   var form = document.getElementById("addForm");
   var itemList = document.getElementById("items");
+  var clearButton = document.getElementById('clear-button');
+  clearButton.addEventListener("click", function(){
+    for (i = 0; i < itemList.children.length; i++){
+      itemList.children[i].style = "display: none";
+    }
+  });
   //Form Submit
   form.addEventListener("submit", addItem);
-
   function addItem(e) {
     e.preventDefault();
     //Get input value
@@ -20,13 +25,17 @@
     deleteBtn.onclick = function(e) {
       console.log("delete button was clicked!");
       li.style = "display: none";
-      
+   
     };
+    
+
 
     doneBtn.onclick = function(e) {
       console.log("done button clicked!");
       li.style.textDecoration = "line-through";
       };
+    
+    
 
     deleteBtn.id = "delete";
     deleteBtn.className = "delete";
