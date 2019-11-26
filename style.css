@@ -1,13 +1,32 @@
+
+
+#addForm {
+    border-radius: 20px;
+}
+
 h1 {
     text-align: center;
+    font-size: 3rem;
 }
 
 .container {
 
-    margin-left: 42%;
+    margin-left: 41%;
 
 }
 
 ul {
-    margin-left: 42%;
+    margin-left: 41%;
+    
 }
+
+li {
+    padding: 8px;
+    font-size: 1.5rem;
+    
+}
+
+#delete {
+    margin-left: 10px;
+}
+

@@ -1,9 +1,9 @@
 (function() {
   var form = document.getElementById("addForm");
   var itemList = document.getElementById("items");
-  var clearButton = document.getElementById('clear-button');
-  clearButton.addEventListener("click", function(){
-    for (i = 0; i < itemList.children.length; i++){
+  var clearButton = document.getElementById("clear-button");
+  clearButton.addEventListener("click", function() {
+    for (i = 0; i < itemList.children.length; i++) {
       itemList.children[i].style = "display: none";
     }
   });
@@ -25,17 +25,19 @@
     deleteBtn.onclick = function(e) {
       console.log("delete button was clicked!");
       li.style = "display: none";
-   
     };
-    
 
+    var lineThrough = false;
 
     doneBtn.onclick = function(e) {
+      lineThrough = !lineThrough;
       console.log("done button clicked!");
-      li.style.textDecoration = "line-through";
-      };
-    
-    
+      if (lineThrough == true) {
+        li.style.textDecoration = "line-through";
+      } else {
+        li.style.textDecoration = "none";
+      }
+    };
 
     deleteBtn.id = "delete";
     deleteBtn.className = "delete";
@@ -51,13 +53,4 @@
     //append li to list
     itemList.appendChild(li);
   }
-  //Delete Item
-  // document.getElementById("delete").addEventListener("click", removeItem);
-  // function removeItem(e) {
-  // console.log('done button clicked!')
-  // }
-  /* var deleteBtn = document.createElement("button");
-  deleteBtn.className = "delete";
-  var doneBtn = document.createElement("button");
-  doneBtn.className = "done"; */
 })();
