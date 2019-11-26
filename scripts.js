@@ -27,12 +27,12 @@
       li.style = "display: none";
     };
 
-    var lineThrough = false;
+    var crossItem = false;
 
     doneBtn.onclick = function(e) {
-      lineThrough = !lineThrough;
+      crossItem = !crossItem;
       console.log("done button clicked!");
-      if (lineThrough == true) {
+      if (crossItem == true) {
         li.style.textDecoration = "line-through";
       } else {
         li.style.textDecoration = "none";
