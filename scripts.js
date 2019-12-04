@@ -2,10 +2,12 @@
   var form = document.getElementById("addForm");
   var itemList = document.getElementById("items");
   var clearButton = document.getElementById("clear-button");
+  
   clearButton.addEventListener("click", function() {
     for (i = 0; i < itemList.children.length; i++) {
       itemList.children[i].style = "display: none";
     }
+
   });
   //Form Submit
   form.addEventListener("submit", addItem);
@@ -19,7 +21,7 @@
     // add text node with input value
     li.appendChild(document.createTextNode(newItem));
     //Create Delete Button and Done Button
-    var deleteBtn = document.createElement("button");
+    var deleteBtn = createDeleteButton;
     var doneBtn = document.createElement("button");
     // add click event listener
     deleteBtn.onclick = function(e) {
@@ -53,4 +55,11 @@
     //append li to list
     itemList.appendChild(li);
   }
+
+
+  function createDeleteButton(){
+    const deleteButton = document.createElement("button");
+    return deleteButton;
+  }
+
 })();
