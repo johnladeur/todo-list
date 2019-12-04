@@ -41,8 +41,7 @@
       }
     };
 
-    deleteBtn.id = "delete";
-    deleteBtn.className = "delete";
+    
     doneBtn.id = "done";
     doneBtn.className = "done";
 
@@ -59,6 +58,10 @@
 
   function createDeleteButton(){
     const deleteButton = document.createElement("button");
+
+    deleteButton.id = "delete";
+    deleteButton.className = "delete";
+
     return deleteButton;
   }
 
