@@ -2,36 +2,52 @@
   var form = document.getElementById("addForm");
   var itemList = document.getElementById("items");
   var clearButton = document.getElementById("clear-button");
-  
+
   clearButton.addEventListener("click", function() {
     for (i = 0; i < itemList.children.length; i++) {
       itemList.children[i].style = "display: none";
     }
-
   });
+
   //Form Submit
   form.addEventListener("submit", addItem);
   function addItem(e) {
     e.preventDefault();
-    //Get input value
-    var newItem = document.getElementById("item").value;
-    //Create new li element and class
-    var li = document.createElement("li");
-    li.className = "list-group-item";
-    // add text node with input value
-    li.appendChild(document.createTextNode(newItem));
+
+    var inputValue = document.getElementById("item").value;
+    var li = createLiElement(inputValue);
+
     //Create Delete Button and Done Button
-    var deleteBtn = createDeleteButton();
-    var doneBtn = document.createElement("button");
-    // add click event listener
-    deleteBtn.onclick = function(e) {
-      console.log("delete button was clicked!");
-      li.style = "display: none";
-    };
+    var deleteBtn = createDeleteButton(li);
+    var doneBtn = createDoneButton(li);
+
+    //append buttons to li
+    li.appendChild(deleteBtn);
+    li.appendChild(doneBtn);
+    
+    itemList.appendChild(li);
+  }
+
+  function createLiElement(inputValue) {
+    const liElement = document.createElement("li");
+
+    liElement.className = "list-group-item";
+
+    liElement.appendChild(document.createTextNode(inputValue));
+
+    return liElement;
+  }
+
+  function createDoneButton(li) {
+    const doneButton = document.createElement("button");
+
+    doneButton.id = "done";
+    doneButton.className = "done";
+    doneButton.appendChild(document.createTextNode("Done"));
 
     var crossItem = false;
 
-    doneBtn.onclick = function(e) {
+    doneButton.onclick = function(e) {
       crossItem = !crossItem;
       console.log("done button clicked!");
       if (crossItem == true) {
@@ -41,29 +57,20 @@
       }
     };
 
-    doneBtn.id = "done";
-    doneBtn.className = "done";
-
-    //append text node to buttons
-    
-    doneBtn.appendChild(document.createTextNode("Done"));
-    //append buttons to li
-    li.appendChild(deleteBtn);
-    li.appendChild(doneBtn);
-    //append li to list
-    itemList.appendChild(li);
+    return doneButton;
   }
 
-  function createDeleteButton(){
+  function createDeleteButton(li) {
     const deleteButton = document.createElement("button");
 
     deleteButton.id = "delete";
     deleteButton.className = "delete";
-
     deleteButton.appendChild(document.createTextNode("X"));
-    
+
+    deleteButton.onclick = function(e) {
+      li.style = "display: none";
+    };
 
     return deleteButton;
   }
-
 })();
