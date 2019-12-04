@@ -21,7 +21,7 @@
     // add text node with input value
     li.appendChild(document.createTextNode(newItem));
     //Create Delete Button and Done Button
-    var deleteBtn = createDeleteButton;
+    var deleteBtn = createDeleteButton();
     var doneBtn = document.createElement("button");
     // add click event listener
     deleteBtn.onclick = function(e) {
@@ -41,12 +41,11 @@
       }
     };
 
-    
     doneBtn.id = "done";
     doneBtn.className = "done";
 
     //append text node to buttons
-    deleteBtn.appendChild(document.createTextNode("X"));
+    
     doneBtn.appendChild(document.createTextNode("Done"));
     //append buttons to li
     li.appendChild(deleteBtn);
@@ -55,12 +54,14 @@
     itemList.appendChild(li);
   }
 
-
   function createDeleteButton(){
     const deleteButton = document.createElement("button");
 
     deleteButton.id = "delete";
     deleteButton.className = "delete";
+
+    deleteButton.appendChild(document.createTextNode("X"));
+    
 
     return deleteButton;
   }
